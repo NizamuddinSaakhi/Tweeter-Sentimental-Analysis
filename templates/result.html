@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Analysis Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Sentiment', 'Percentage'],
+          ['Positive Tweet',     {{ analysis_result[0] }}],
+          ['Negative Tweet',      {{ analysis_result[1] }}],
+          ['Neutral Tweet',  {{ analysis_result[2] }}],
+        ]);
+
+        var options = {
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+<style>
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+  background-color: white;
+  line-height: 1.5;
+  color: #000;
+}
+
+.tweet{
+        margin: 10px;
+        text-align: center;
+}
+
+
+table,tr,td,th{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td{
+      padding: 10px;
+    }
+.chart{
+         margin: 100px 50px 100px 500px;
+        text-align: center;
+}
+
+</style>
+</head>
+<body>
+    <div class="tweet">
+        <h2><u>Analysis Result</u></h2>
+        <h1><b>Tweeter handle name is @{{ search_name }}</b></h1>
+    <div class ="chart" id="piechart_3d" style="width: 900px; height: 500px;"></div>
+<!-- partial -->
+
+
+</body>
+</html>

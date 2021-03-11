@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tweeter Sentimental Analysis Web App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+
+<style>
+
+body {
+
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.5;
+  color: black;
+  background-color: #E6E6FA;
+
+}
+
+.tweet{
+        margin: 350px;
+        text-align: center;
+}
+</style>
+
+</head>
+<body>
+    <div class="tweet">
+        <h2>Welcome to Tweeter Sentimental Analysis Web Application </h2>
+        <form action="{{ url_for('main') }}" method="POST">
+            <input type="text" style="font-size: 16pt; width:280px; " id="tweet_name" name="tweet_name" placeholder="Enter a tweeter handle name" size="50" required />
+            <input type="submit" style="font-size: 16pt; width:280px; id="submission_button" value="Search and Analysis"/>
+        </form>        
+    </div>
+</body>
+</html>
